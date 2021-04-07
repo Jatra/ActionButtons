@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:enterFadeDuration="@android:integer/config_longAnimTime"
+        android:exitFadeDuration="@android:integer/config_shortAnimTime"
+    >
+    <item
+        android:id="@+id/pressed"
+        android:state_pressed="true"
+        android:drawable="@drawable/ic_baseline_lock_open_24"/>
+    <item
+        android:id="@+id/disabled"
+        android:state_enabled="false"
+        android:drawable="@drawable/ic_baseline_lock_24_disabled" />
+    <item
+        android:id="@+id/activated"
+        android:state_activated="true"
+        android:drawable="@drawable/spinlock" />
+    <item
+        android:id="@+id/enabled"
+        android:state_enabled="true"
+        android:drawable="@drawable/ic_baseline_lock_24_enabled" />
+
+    <transition
+        android:fromId="@id/activated"
+        android:toId="@id/enabled">
+        <animation-list>
+            <item
+                android:duration="@android:integer/config_longAnimTime"
+                android:drawable="@drawable/ic_action_done"/>
+            <item
+                android:duration="@android:integer/config_shortAnimTime"
+                android:drawable="@drawable/ic_baseline_lock_24_enabled"/>
+        </animation-list>
+    </transition>
+
+</animated-selector>
+
+
+<!-- Now needs a transition to go from activated to enabled -->
+<!-- which needs to go thugh an intermediate image. A check -->
+<!--<item-->
+<!--android:id="@+id/activated"-->
+<!--android:state_activated="true"-->
+<!--android:drawable="@drawable/ic_baseline_lock_24_active" />-->
+
+
+<!--    android:enterFadeDuration="@android:integer/config_longAnimTime"-->
+<!--    android:exitFadeDuration="@android:integer/config_shortAnimTime"-->
